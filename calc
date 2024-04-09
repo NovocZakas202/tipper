@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tipper's Calculator</title>
+	<style>
+		
+		body{background-image: linear-gradient(skyblue, cornflowerblue, black);
+			background-repeat: no-repeat;
+			height:475px;
+			background-size: 100%;
+			
+		}
+	</style>
+	
+	<script>
+	
+		 
+		
+	function calcTip(){
+		/* Calculate Tip */
+		var TipPer=document.TipForm.TipPercent.value;
+		//Number of People
+		var NumPeople=document.TipForm.NumPeople.value;
+		
+		//get the bill
+		 var YourBill =parseFloat(document.TipForm.YourBill.value);
+		
+		//find 20% of the bill
+		var tip = (TipPer/100) *YourBill;
+		
+		//output the tip
+		var output="The Tip is: $" +tip+ "<br>";
+		
+		
+			output+="the Total is: $" +(tip+YourBill) + "<br>"
+		
+			output+= "The Total Cost Per Person is: $" + ((tip+YourBill)/ NumPeople) +"<br>"
+		
+		document.getElementById("TipOutput").innerHTML=output;
+	}
+		
+		
+		
+		function rangeChanger(){
+			TipPer = document.TipForm.TipPercent.value;
+			
+			document.getElementById("TipPercentOutput").innerHTML=TipPer;
+		}
+		
+		
+		
+		
+		
+		
+		
+	
+	</script>
+	
+</head>
+
+<body">
+	<h1>The Tipper's Calculator</h1>
+	
+	
+	
+<form name="TipForm">
+		<label for="Your Bill">
+		Enter the Bill Amount
+		</label><br>
+		
+		<input type="text" name="YourBill"><br>
+		
+	Tip Percent
+			<select name="TipPercent">
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="25">25</option>
+				<option value="30">30</option>
+				<option value="35">35</option>
+				<option value="40">40</option>
+				<option value="45">45</option>
+				<option value="50">50</option>
+	 		</select><br>
+			<div id="TipPercentOutput"></div>
+	
+		How many people in your party are paying:<br>
+			<select name="NumPeople">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+	 		</select>
+	
+	<br>
+		<input type="button" value="Calculate Tip" onClick="calcTip()">	
+	
+		<div id="TipOutput"></div>
+	</form>
+	               
+
+</body>
+</html>
